@@ -1,0 +1,85 @@
+.forma {
+  margin: 0 auto;
+  width: 400px;
+  padding: 15px 15px 6px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background: rgba(124, 101, 101, 0.5);
+  -moz-box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.nameNumber {
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.4);
+  width: 350px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: #fff;
+  padding-left: 25px;
+  padding-right: 20px;
+  padding-top: 12px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.pole {
+  display: block;
+  width: 330px;
+  margin-bottom: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #bdbdbd;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn {
+  margin: 0 auto;
+  display: block;
+  padding: 10px 28px;
+  border: 1px solid rgb(143, 105, 105);
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 2px #fff, 0 5px 5px #0004;
+  line-height: 1.25;
+  background: rgb(113, 82, 82);
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  transition: background-color 0.6s ease;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 600;
+  color: #fdfdfe;
+  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+    0px 0px 20px #b393d3;
+}
