@@ -1,53 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { Contacts } from './Contacts/Contacts';
 
+const initialContacts = [
+  { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+  { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+  { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+  { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+];
+
 export const App = () => {
-  const [contacts, setContacts] = useState([
-    { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-    { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-    { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-    { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-  ]);
+  const [contacts, setContacts] = useState(() => {
+    const data = localStorage.getItem('contactList');
+    if (!data) return initialContacts;
+
+    return JSON.parse(data);
+  });
   const [filter, setFilter] = useState('');
 
-  const [first, setFirst] = useState(true);
-
-  useEffect(() => {
-    if (first) {
-      const savedName = localStorage.getItem('contactList');
-      if (savedName !== 'undefined') {
-        const parseContacts = JSON.parse(savedName);
-
-        if (parseContacts) {
-          setContacts(parseContacts);
-        }
-      }
-      setFirst(false);
-    } else {
-      localStorage.setItem('contactList', JSON.stringify(contacts));
-    }
-  }, [contacts, first]);
-
-  const handleSubmit = e => {
-    const id = nanoid();
-    const name = e.name;
-    const number = e.number;
-    const contactsLists = [...contacts];
-
-    if (contactsLists.findIndex(contact => name === contact.name) !== -1) {
+  const handleSubmit = ({ name, number }) => {
+    if (contacts.findIndex(contact => name === contact.name) !== -1) {
       alert(`${name} is already in contacts.`);
-    } else {
-      contactsLists.push({ id, name, number });
+      return;
     }
 
-    setContacts(contactsLists);
+    const id = nanoid();
+
+    setContacts(prev => [...prev, { id, name, number }]);
   };
 
-  const handleDelete = e => {
-    setContacts(preContacts => preContacts.filter(({ id }) => id !== e));
+  const handleDelete = contactId => {
+    setContacts(preContacts =>
+      preContacts.filter(({ id }) => id !== contactId)
+    );
   };
 
   const filterContacts = () => {
